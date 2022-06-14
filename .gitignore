@@ -3,6 +3,7 @@
 .*.swp
 /env
 /dl
+!/dl/linux-4.4.60.tar.xz
 /.config
 /.config.old
 /bin
