@@ -15,7 +15,8 @@ platform_do_upgrade() {
 	glinet,gl-ax1800|\
 	glinet,gl-axt1800|\
 	huasifei,wf-hr6001|\
-	qihoo,v6|\
+	xiaomi,rm1800|\
+	qihoo,360v6|\
 	zn,m2)
 		nand_do_upgrade "$1"
 		;;

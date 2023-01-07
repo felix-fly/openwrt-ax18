@@ -13,19 +13,22 @@ ipq60xx_setup_interfaces()
 
 	case "$board" in
 	cmiot,ax18|\
-	qihoo,v6|\
+	qihoo,360v6|\
 	zn,m2)
 		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3" "eth0"
 		;;
 	glinet,gl-ax1800)
 		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3 eth4" "eth0"
 		;;
-	glinet,axt1800)
+	glinet,gl-axt1800)
 		ucidef_set_interfaces_lan_wan "eth1 eth2" "eth0"
 		;;
 	huasifei,wf-hr6001|\
 	linksys,mr7350)
 		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2 eth3" "eth4"
+		;;
+	xiaomi,rm1800)
+		ucidef_set_interfaces_lan_wan "eth0 eth1 eth2" "eth3"
 		;;
 	*)
 		echo "Unsupported hardware. Network interfaces not initialized"
@@ -42,7 +45,7 @@ ipq60xx_setup_macs()
 		wan_mac=$(mtd_get_mac_ascii devinfo hw_mac_addr)
 		lan_mac=$(macaddr_add "$wan_mac" 1)
 		;;
-	qihoo,v6)
+	qihoo,360v6)
 		lan_mac=$(mtd_get_mac_ascii factory lanMac)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		;;
